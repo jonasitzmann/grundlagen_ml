@@ -36,7 +36,7 @@ def plot(x, y=None, coeff_dict={}):
         coeff_dict = {'' : coeff_dict}
     for label, w in coeff_dict.items():
         plot_weights(w, label, min(x), max(x), ax)
-    ax.legend()
+    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
 def plot_df(df, coeff_dict={}):
     y = df.y if 'y' in df.columns else None
