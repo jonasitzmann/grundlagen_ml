@@ -49,7 +49,7 @@ nb_tmp, tex_tmp, pdf_tmp = ['.'.join([tmp, ending]) for ending in ['ipynb', 'tex
 with TempDirContext(nb_path) as context:
     with open(nb_tmp, 'w') as out_file:
         out_file.write(content)
-    os.system('jupyter-nbconvert --to=latex {}'.format(nb_tmp))
+    os.system('jupyter-nbconvert --to=latex --LatexExporter.template_extension=/home/jonas/Documents/better_article.tplx {}'.format(nb_tmp))
     tex_content = None
     with open(tex_tmp, 'r') as file:
         tex_content = ''.join(file.readlines())
