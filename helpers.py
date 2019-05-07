@@ -22,16 +22,16 @@ def get_y(w, x):
     y = phi_x @ w
     return y
 
-def plot_weights(weights, label, x_min, x_max, ax):
+def plot_weights(weights, label, x_min, x_max, ax, **kwargs):
     n_samples = 200
     xs = np.linspace(x_min, x_max, n_samples)
     ys = get_y(weights, xs)
-    ax.plot(xs, ys, label=label)
+    ax.plot(xs, ys, label=label, **kwargs)
 
 def plot(x, y=None, coeff_dict={}):
     ax = plt.gca()
     if not y is None:
-        ax.scatter(x, y, label='samples', marker='X')
+        ax.scatter(x, y, label='samples', marker='X', zorder=10)
     if not type(coeff_dict) == dict:
         coeff_dict = {'' : coeff_dict}
     for label, w in coeff_dict.items():
